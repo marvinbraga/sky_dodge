@@ -54,3 +54,8 @@ class AbstractGame(metaclass=ABCMeta):
     def update(self):
         """ Method to update game history. """
         pass
+
+    @abstractmethod
+    def check_events(self, event):
+        """ Method to check events updates. """
+        pass

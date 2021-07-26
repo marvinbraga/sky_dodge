@@ -18,7 +18,6 @@ def start(game):
     while game.running:
         # Update background
         game.fill_background(color=(135, 206, 250))
-        kwargs = {}
         # Event loop
         for event in pygame.event.get():
             # Key to exit
@@ -28,13 +27,11 @@ def start(game):
             elif event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     game.running = False
-            elif event.type == game.ADD_ENEMY:
-                kwargs['create_enemies'] = 1
-            elif event.type == game.ADD_CLOUD:
-                kwargs['create_clouds'] = 1
+            else:
+                game.check_events(event)
 
         # Update game info.
-        game.update(**kwargs)
+        game.update()
         # Update pygame screen.
         pygame.display.flip()
 

@@ -62,6 +62,13 @@ class SkyDodgeGame(AbstractGame):
             self.running = False
         return self
 
+    def check_events(self, event):
+        """ Method to check events updates. """
+        if event.type == self.ADD_ENEMY:
+            self.create_enemies(1)
+        elif event.type == self.ADD_CLOUD:
+            self.create_clouds(1)
+
     def create_enemies(self, create_enemies):
         """ Create instance of enemy """
         for i in range(create_enemies):
