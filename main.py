@@ -35,12 +35,13 @@ def start(game):
         # Update pygame screen.
         pygame.display.flip()
 
-    pygame.quit()
-
 
 if __name__ == '__main__':
     pygame.mixer.init()
     pygame.init()
-    start(SkyDodgeGame(display_size=(800, 600)))
-    # pygame.mixer.music.stop()
-    pygame.mixer.quit()
+    try:
+        start(SkyDodgeGame(display_size=(800, 600)))
+    finally:
+        # pygame.mixer.music.stop()
+        pygame.mixer.quit()
+        pygame.quit()
